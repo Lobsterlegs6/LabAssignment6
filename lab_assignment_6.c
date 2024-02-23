@@ -1,8 +1,27 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int search(int numbers[], int low, int high, int value) 
 {
-	return -1;
+	if(high == low)
+		return -1;
+
+	int mid = (low+high)/2;
+
+	if(numbers[mid]==value)
+		return mid;
+
+	else if(numbers[mid]>value){
+		return search(numbers, low, mid, value);
+	}
+	
+	return search(numbers, mid+1, high, value);
+	
+
+
+
+
+	
 }
 
 void printArray(int numbers[], int sz)
@@ -20,7 +39,10 @@ int main(void)
 {
 	int i, numInputs;
 	char* str;
-	float average;
+    float average;
+
+	
+	
 	int value;
 	int index;
 	int* numArray = NULL;
